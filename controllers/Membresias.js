@@ -51,7 +51,7 @@ const putMembresia = async(req, res) =>{
 }
 
 const deleteMembresia = async(req, res) =>{
-    const {idServicio} = req.body //Desestructurar
+    const {idMembresia} = req.body //Desestructurar
     try {
         const membresia = await Membresia.findOneAndDelete({idMembresia: idMembresia})
             mensaje = 'Eliminacion exitosa'
