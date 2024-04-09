@@ -28,8 +28,11 @@ const servicioSchema = ({
     fechaFin:{
         type:String,
         required:[true, 'La fecha fin de la servicios es requeriad'],
+    },
+    observaciones:{
+        type:String,
+        required:[true, 'La fecha fin de la servicios es requeriad'],
     }
-
     
 })
 

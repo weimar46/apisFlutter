@@ -28,15 +28,15 @@ const postMembresia = async(req, res) => {
 
 
 const putMembresia = async(req, res) =>{
-    const {idMembresia,nombreMembresia,precioMembresia, frecuenciaMembresia, fechaInicio,fechaFin } = req.body
+    const {idMembresia,nombreMembresia,precioMembresia, frecuenciaMembresia, fechaInicio,fechaFin,iva } = req.body
     try {
         const membresia = await Membresia.findOneAndUpdate({idMembresia: idMembresia},{
             nombreMembresia: nombreMembresia,
             precioMembresia: precioMembresia,
             frecuenciaMembresia:frecuenciaMembresia,
             fechaInicio:fechaInicio,
-            fechaFin: fechaFin
-          
+            fechaFin: fechaFin,
+            iva:iva
 
 
         });//las primeras llaves son el valor por el cual voy a hacer la modificacion el segundo hace referencia a lo que el usuario envio

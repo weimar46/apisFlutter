@@ -28,6 +28,10 @@ const membresiaSchema = ({
     fechaFin:{
         type:String,
         required:[true, 'La fecha fin de la servicios es requeriad'],
+    },
+    iva:{
+        type:String,
+        required:[true, 'La fecha fin de la servicios es requeriad'],
     }
 
     
