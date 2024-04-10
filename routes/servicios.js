@@ -5,7 +5,7 @@ const route = Router()
 
 //Listar todos los datos
 //Importando el controlador
-const { getServicios, postServicios, putServicios, deleteServicios } = require('../controllers/Servicios')
+const { getServicios, postServicios, putServicios, deleteServicios } = require('../controllers/servicios')
 
 route.get('/', getServicios)
 

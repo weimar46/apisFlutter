@@ -9,7 +9,7 @@ class Server{
     constructor(){
         this.app = express()
         this.port = process.env.PORT
-        this.serviciosPath = '/Servicios' //Ruta de la API
+        this.serviciosPath = '/servicios' //Ruta de la API
         this.membresiasPath = '/Membresias' //Ruta de la API
         this.usuariosPath = '/Usuarios'
         this.middlewares()
