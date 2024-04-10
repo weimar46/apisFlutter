@@ -10,8 +10,8 @@ class Server{
         this.app = express()
         this.port = process.env.PORT
         this.servicioPath = '/servicios' //Ruta de la API
-        this.membresiasPath = '/Membresias' //Ruta de la API
-        this.UsuarioPath = '/Usuario'
+        this.membresiasPath = '/membresias' //Ruta de la API
+        this.usuarioPath = '/Usuario'
         this.middlewares()
         this.routes()
         this.conectarDB()
@@ -26,8 +26,8 @@ class Server{
     }
     routes(){
         this.app.use(this.servicioPath, require('../routes/servicios')),
-        this.app.use(this.membresiasPath, require('../routes/membresias'))
-        this.app.use(this.UsuarioPath, require('../routes/Usuario'))
+        this.app.use(this.membresiasPath, require('../routes/membresias')),
+        this.app.use(this.usuarioPath, require('../routes/Usuario'))
 
        
     }
