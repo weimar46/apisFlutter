@@ -4,34 +4,34 @@ const MembresiaSchema = ({
     idMembresia:{
         type: Number,
         unique: true,
-        required:[true, 'El id de la servicios  es necesaria']
+        required:true
     },
 
     nombreMembresia: {
         type:String,
-        required:[true, 'El nombre de la servicios es requerida'],
+        required:true,
     },
     precioMembresia: {
         type:String,
-        required:[true, 'El precio de la servicios es requerida'],
+        required:true
     },
     frecuenciaMembresia:{
         type:String,
-        required:[true, 'La frecuencia de la servicios es requerida'],
+        required:true
     },
 
     fechaInicio:{
         type:String,
-        required:[true, 'La fecha de inicio de la servicios es requeriad'],
+        required:true
     },
 
     fechaFin:{
         type:String,
-        required:[true, 'La fecha fin de la servicios es requeriad'],
+        required:true
     },
     iva:{
         type:String,
-        required:[true, 'El iva de la membresia es requeriad'],
+        required:true
     }
 
     

@@ -14,7 +14,7 @@ const postServicios = async(req, res) => {
     let mensaje = 'Insercion exitosa'
     try {
         const servicios = new Servicios(datos) //Instanciar el objeto
-        await servicio.save()//Guardar en la base de datos  
+        await servicios.save()//Guardar en la base de datos  
         console.log(servicios) 
     } catch(error) {
         mensaje = error
