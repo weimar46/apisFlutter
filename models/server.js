@@ -25,7 +25,7 @@ class Server{
         )
     }
     routes(){
-        this.app.use(this.serviciosPath, require('../routes/Servicios')),
+        this.app.use(this.serviciosPath, require('../routes/servicios')),
         this.app.use(this.membresiasPath, require('../routes/Membresias')),
         this.app.use(this.usuariosPath, require('../routes/Usuarios'))
 
