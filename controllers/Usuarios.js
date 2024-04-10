@@ -1,21 +1,21 @@
 const {response} = require('express')
 
-Usuario = require('../models/Usuario')
+const Usuarios = require('../models/Usuarios')
 
-const getUsuario = async(req, res) => {
-    const usuario = await Usuario.find(); //Obtener todos los dococumentos de una coleccion
+const getUsuarios = async(req, res) => {
+    const usuarios = await Usuarios.find(); //Obtener todos los dococumentos de una coleccion
     res.json({
-        msg: usuario
+        msg: usuarios
     })
 }
 
-const postUsuario = async(req, res) => {
+const postUsuarios = async(req, res) => {
     const datos = req.body //Capturar datos de la URL-postman
     let mensaje = 'Insercion exitosa'
     try {
-        const usuario = new Usuario(datos) //Instanciar el objeto
-        await usuario.save()//Guardar en la base de datos  
-        console.log(usuario) 
+        const usuarios = new Usuarios(datos) //Instanciar el objeto
+        await usuarios.save()//Guardar en la base de datos  
+        console.log(usuarios) 
     } catch(error) {
         mensaje = error
         console.log(error)
@@ -27,8 +27,8 @@ const postUsuario = async(req, res) => {
 }
 
 
-const putUsuario = async(req, res) =>{
-    const {idUsuario, } = req.body
+const putUsuarios = async(req, res) =>{
+    const {idUsuario,nombreUsuario,pasword } = req.body
     try {
         const usuario = await Usuario.findOneAndUpdate({idUsuario: idUsuario},{
             nombreUsuario: nombreUsuario,
@@ -47,10 +47,10 @@ const putUsuario = async(req, res) =>{
     
 }
 
-const deleteUsuario = async(req, res) =>{
+const deleteUsuarios = async(req, res) =>{
     const {idUsuario} = req.body //Desestructurar
     try {
-        const usuario = await Usuario.findOneAndDelete({idUsuario: idUsuario})
+        const usuarios = await Usuarios.findOneAndDelete({idUsuario: idUsuario})
             mensaje = 'Eliminacion exitosa'
     } catch(error) {
         mensaje = error
@@ -63,8 +63,8 @@ const deleteUsuario = async(req, res) =>{
 
 
 module.exports = {
-    getUsuario,
-    postUsuario,
-    putUsuario,
-    deleteUsuario
+    getUsuarios,
+    postUsuarios,
+    putUsuarios,
+    deleteUsuarios
 }

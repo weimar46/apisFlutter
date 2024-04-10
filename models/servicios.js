@@ -37,4 +37,4 @@ const servicioSchema = ({
 })
 
 
-module.exports = model('servicios', servicioSchema)
+module.exports = model('Servicios', servicioSchema)

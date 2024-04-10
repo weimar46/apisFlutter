@@ -5,15 +5,15 @@ const route = Router()
 
 //Listar todos los datos
 //Importando el controlador
-const { getServicio, postServicio, putServicio, deleteServicio } = require('../controllers/servicios')
+const { getServicios, postServicios, putServicios, deleteServicios } = require('../controllers/Servicios')
 
-route.get('/', getServicio)
+route.get('/', getServicios)
 
-route.post('/', postServicio)
+route.post('/', postServicios)
 
-route.put('/', putServicio)
+route.put('/', putServicios)
 
-route.delete('/', deleteServicio)
+route.delete('/', deleteServicios)
 // //Consultar un dato
 // route.get('/consultarUsuario', (req, res) => {
 //     res.json({

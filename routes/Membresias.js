@@ -5,15 +5,15 @@ const route = Router()
 
 //Listar todos los datos
 //Importando el controlador
-const { getMembresia, postMembresia, putMembresia, deleteMembresia } = require('../controllers/Membresias')
+const { getMembresias, postMembresias, putMembresias, deleteMembresias } = require('../controllers/Membresias')
 
-route.get('/', getMembresia)
+route.get('/', getMembresias)
 
-route.post('/', postMembresia)
+route.post('/', postMembresias)
 
-route.put('/', putMembresia)
+route.put('/', putMembresias)
 
-route.delete('/', deleteMembresia)
+route.delete('/', deleteMembresias)
 // //Consultar un dato
 // route.get('/consultarUsuario', (req, res) => {
 //     res.json({

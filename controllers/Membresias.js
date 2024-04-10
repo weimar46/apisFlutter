@@ -1,21 +1,21 @@
 const {response} = require('express')
 
-const Membresia = require('../models/Membresias')
+const Membresias = require('../models/Membresias')
 
-const getMembresia = async(req, res) => {
-    const membresia = await Membresia.find(); //Obtener todos los dococumentos de una coleccion
+const getMembresias = async(req, res) => {
+    const membresias = await Membresias.find(); //Obtener todos los dococumentos de una coleccion
     res.json({
-        msg: membresia
+        msg: membresias
     })
 }
 
-const postMembresia = async(req, res) => {
+const postMembresias = async(req, res) => {
     const datos = req.body //Capturar datos de la URL-postman
     let mensaje = 'Insercion exitosa'
     try {
-        const membresia = new Membresia(datos) //Instanciar el objeto
-        await membresia.save()//Guardar en la base de datos  
-        console.log(membresia) 
+        const membresias = new Membresias(datos) //Instanciar el objeto
+        await membresias.save()//Guardar en la base de datos  
+        console.log(membresias) 
     } catch(error) {
         mensaje = error
         console.log(error)
@@ -27,10 +27,10 @@ const postMembresia = async(req, res) => {
 }
 
 
-const putMembresia = async(req, res) =>{
+const putMembresias = async(req, res) =>{
     const {idMembresia,nombreMembresia,precioMembresia, frecuenciaMembresia, fechaInicio,fechaFin,iva } = req.body
     try {
-        const membresia = await Membresia.findOneAndUpdate({idMembresia: idMembresia},{
+        const membresias = await Membresias.findOneAndUpdate({idMembresia: idMembresia},{
             nombreMembresia: nombreMembresia,
             precioMembresia: precioMembresia,
             frecuenciaMembresia:frecuenciaMembresia,
@@ -50,10 +50,10 @@ const putMembresia = async(req, res) =>{
     
 }
 
-const deleteMembresia = async(req, res) =>{
+const deleteMembresias = async(req, res) =>{
     const {idMembresia} = req.body //Desestructurar
     try {
-        const membresia = await Membresia.findOneAndDelete({idMembresia: idMembresia})
+        const membresias = await Membresias.findOneAndDelete({idMembresia: idMembresia})
             mensaje = 'Eliminacion exitosa'
     } catch(error) {
         mensaje = error
@@ -66,8 +66,8 @@ const deleteMembresia = async(req, res) =>{
 
 
 module.exports = {
-    getMembresia,
-    postMembresia,
-    putMembresia,
-    deleteMembresia
+    getMembresias,
+    postMembresias,
+    putMembresias,
+    deleteMembresias
 }

@@ -1,21 +1,21 @@
 const {response} = require('express')
 
-Servicio = require('../models/servicios')
+const Servicios = require('../models/servicios')
 
-const getServicio = async(req, res) => {
-    const servicio = await Servicio.find(); //Obtener todos los dococumentos de una coleccion
+const getServicios = async(req, res) => {
+    const servicios = await Servicios.find(); //Obtener todos los dococumentos de una coleccion
     res.json({
-        msg: servicio
+        msg: servicios
     })
 }
 
-const postServicio = async(req, res) => {
+const postServicios = async(req, res) => {
     const datos = req.body //Capturar datos de la URL-postman
     let mensaje = 'Insercion exitosa'
     try {
-        const servicio = new Servicio(datos) //Instanciar el objeto
+        const servicios = new Servicios(datos) //Instanciar el objeto
         await servicio.save()//Guardar en la base de datos  
-        console.log(servicio) 
+        console.log(servicios) 
     } catch(error) {
         mensaje = error
         console.log(error)
@@ -27,10 +27,10 @@ const postServicio = async(req, res) => {
 }
 
 
-const putServicio = async(req, res) =>{
+const putServicios = async(req, res) =>{
     const {idServicio,nombreServicio,precioServicio, frecuenciaServicio, fechaInicio,fechaFin,observaciones } = req.body
     try {
-        const servicio = await Servicio.findOneAndUpdate({idServicio: idServicio},{
+        const servicios = await Servicios.findOneAndUpdate({idServicio: idServicio},{
             nombreServicio: nombreServicio,
             precioServicio: precioServicio,
             frecuenciaServicio:frecuenciaServicio,
@@ -50,10 +50,10 @@ const putServicio = async(req, res) =>{
     
 }
 
-const deleteServicio = async(req, res) =>{
+const deleteServicios = async(req, res) =>{
     const {idServicio} = req.body //Desestructurar
     try {
-        const servicio = await Servicio.findOneAndDelete({idServicio: idServicio})
+        const servicios = await Servicios.findOneAndDelete({idServicio: idServicio})
             mensaje = 'Eliminacion exitosa'
     } catch(error) {
         mensaje = error
@@ -66,8 +66,8 @@ const deleteServicio = async(req, res) =>{
 
 
 module.exports = {
-    getServicio,
-    postServicio,
-    putServicio,
-    deleteServicio
+    getServicios,
+    postServicios,
+    putServicios,
+    deleteServicios
 }

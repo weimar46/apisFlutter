@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose')
 
-const membresiaSchema = ({
+const MembresiaSchema = ({
     idMembresia:{
         type: Number,
         unique: true,
@@ -38,4 +38,4 @@ const membresiaSchema = ({
 })
 
 
-module.exports = model('membresias', membresiaSchema)
+module.exports = model('Membresias', MembresiaSchema)
