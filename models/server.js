@@ -11,7 +11,7 @@ class Server{
         this.port = process.env.PORT
         this.servicioPath = '/servicios' //Ruta de la API
         this.membresiasPath = '/membresias' //Ruta de la API
-        this.membresiasPath = '/usuario'
+        this.membresiasPath = '/Usuario'
         this.middlewares()
         this.routes()
         this.conectarDB()
