@@ -11,7 +11,7 @@ class Server{
         this.port = process.env.PORT
         this.servicioPath = '/servicios' //Ruta de la API
         this.membresiasPath = '/membresias' //Ruta de la API
-        this.usuarioPath = '/Usuario' 
+        this.membresiasPath = '/usuario'
         this.middlewares()
         this.routes()
         this.conectarDB()
@@ -28,6 +28,8 @@ class Server{
         this.app.use(this.servicioPath, require('../routes/servicios')),
         this.app.use(this.membresiasPath, require('../routes/Membresias'))
         this.app.use(this.membresiasPath, require('../routes/Usuario'))
+
+       
     }
     
     middlewares(){

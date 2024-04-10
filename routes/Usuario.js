@@ -1,15 +1,32 @@
-const { Router } = require('express');
-const router = Router();
+const {Router} = require('express')
 
-// Importar el controlador de usuarios
-const { loginUser } = require('../controllers/usuarios');
+const route = Router()
 
-// Ruta para el inicio de sesión
-router.post('/login', loginUser);
 
-// Otras rutas relacionadas con usuarios, como registro, actualización, eliminación, etc.
-// router.post('/registro', createUser);
-// router.put('/actualizar/:id', updateUser);
-// router.delete('/eliminar/:id', deleteUser);
+//Listar todos los datos
+//Importando el controlador
+const { getUsuario, postUsuario, putUsuario, deleteUsuario } = require('../controllers/Usuario')
 
-module.exports = router;
+route.get('/', getUsuario)
+
+route.post('/', postUsuario)
+
+route.put('/', putUsuario)
+
+route.delete('/', deleteUsuario)
+// //Consultar un dato
+// route.get('/consultarUsuario', (req, res) => {
+//     res.json({
+//         msg: 'Lista Datos'
+//     })
+// })
+
+// //Metodo para agregar datos
+// route.post('/', (req, res) => {
+//     res.json({
+//         msg: 'Insercion exitosa'
+//     })
+// })
+
+
+module.exports = route 
