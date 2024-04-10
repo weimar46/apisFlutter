@@ -11,7 +11,6 @@ class Server{
         this.port = process.env.PORT
         this.serviciosPath = '/servicios' //Ruta de la API
         this.membresiasPath = '/Membresias' //Ruta de la API
-        this.usuariosPath = '/Usuarios'
         this.middlewares()
         this.routes()
         this.conectarDB()
@@ -26,9 +25,7 @@ class Server{
     }
     routes(){
         this.app.use(this.serviciosPath, require('../routes/servicios')),
-        this.app.use(this.membresiasPath, require('../routes/Membresias')),
-        this.app.use(this.usuariosPath, require('../routes/Usuarios'))
-
+        this.app.use(this.membresiasPath, require('../routes/Membresias'))
        
     }
     
