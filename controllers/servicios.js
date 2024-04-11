@@ -50,7 +50,7 @@ const putServicios = async(req, res) =>{
     
 }
 
-const deleteMembresias = async(req, res) =>{
+const deleteServicios = async(req, res) =>{
     const {idServicio} = req.body //Desestructurar
     try {
         const servicios = await Membresias.findOneAndDelete({idServicio: idServicio})
