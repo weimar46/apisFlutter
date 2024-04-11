@@ -50,19 +50,20 @@ const putServicios = async(req, res) =>{
     
 }
 
-const deleteServicios = async(req, res) =>{
-    const {idServicio} = req.body //Desestructurar
+const deleteServicios = async (req, res) => {
+    const { idServicio } = req.body // Desestructurar
     try {
-        const servicios = await Membresias.findOneAndDelete({idServicio: idServicio})
-            mensaje = 'Eliminacion exitosa'
-    } catch(error) {
+        const servicios = await Servicios.findOneAndDelete({ idServicio: idServicio })
+        mensaje = 'Eliminación exitosa'
+    } catch (error) {
         mensaje = error
     }
     res.json({
-        msg:mensaje
+        msg: mensaje
     })
-    
+
 }
+
 
 module.exports = {
     getServicios,
