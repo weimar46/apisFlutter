@@ -1,21 +1,21 @@
 const {response} = require('express')
 
-const Servicios = require('../models/servicios')
+Servicio = require('../models/servicios')
 
-const getServicios = async(req, res) => {
-    const servicios = await Servicios.find(); //Obtener todos los dococumentos de una coleccion
+const getServicio = async(req, res) => {
+    const servicio = await Servicio.find(); //Obtener todos los dococumentos de una coleccion
     res.json({
-        msg: servicios
+        msg: servicio
     })
 }
 
-const postServicios = async(req, res) => {
+const postServicio = async(req, res) => {
     const datos = req.body //Capturar datos de la URL-postman
     let mensaje = 'Insercion exitosa'
     try {
-        const servicios = new Servicios(datos) //Instanciar el objeto
-        await servicios.save()//Guardar en la base de datos  
-        console.log(servicios) 
+        const servicio = new Servicio(datos) //Instanciar el objeto
+        await servicio.save()//Guardar en la base de datos  
+        console.log(servicio) 
     } catch(error) {
         mensaje = error
         console.log(error)
@@ -27,12 +27,12 @@ const postServicios = async(req, res) => {
 }
 
 
-const putServicios = async(req, res) =>{
+const putServicio = async(req, res) =>{
     const {idServicio,nombreServicio,precioServicio, frecuenciaServicio, fechaInicio,fechaFin,observaciones } = req.body
     try {
-        const servicios = await Servicios.findOneAndUpdate({idServicio: idServicio},{
-            idServicio: idServicio,
+        const servicio = await Servicio.findOneAndUpdate({idServicio: idServicio},{
             nombreServicio: nombreServicio,
+            precioServicio: precioServicio,
             frecuenciaServicio:frecuenciaServicio,
             fechaInicio:fechaInicio,
             fechaFin: fechaFin,
@@ -50,10 +50,10 @@ const putServicios = async(req, res) =>{
     
 }
 
-const deleteServicios = async(req, res) =>{
+const deleteServicio = async(req, res) =>{
     const {idServicio} = req.body //Desestructurar
     try {
-        const servicios = await Servicios.findOneAndDelete({idServicio: idServicio})
+        const servicio = await Servicio.findOneAndDelete({idServicio: idServicio})
             mensaje = 'Eliminacion exitosa'
     } catch(error) {
         mensaje = error
@@ -66,8 +66,8 @@ const deleteServicios = async(req, res) =>{
 
 
 module.exports = {
-    getServicios,
-    postServicios,
-    putServicios,
-    deleteServicios
+    getServicio,
+    postServicio,
+    putServicio,
+    deleteServicio
 }
