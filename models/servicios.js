@@ -1,40 +1,41 @@
 const {Schema, model} = require('mongoose')
 
-const servicioSchema = ({
-    idServicio:{
+const MembresiaSchema = ({
+    idMembresia:{
         type: Number,
         unique: true,
-        required:[true, 'El id de la servicios  es necesaria']
+        required:true
     },
 
     nombreServicio: {
         type:String,
-        required:[true, 'El nombre de la servicios es requerida'],
+        required:true,
     },
     precioServicio: {
         type:String,
-        required:[true, 'El precio de la servicios es requerida'],
+        required:true
     },
     frecuenciaServicio:{
         type:String,
-        required:[true, 'La frecuencia de la servicios es requerida'],
+        required:true
     },
 
     fechaInicio:{
         type:String,
-        required:[true, 'La fecha de inicio de la servicios es requeriad'],
+        required:true
     },
 
     fechaFin:{
         type:String,
-        required:[true, 'La fecha fin de la servicios es requeriad'],
+        required:true
     },
     observaciones:{
         type:String,
-        required:[true, 'La fecha fin de la servicios es requeriad'],
+        required:true
     }
+
     
 })
 
 
-module.exports = model('Servicios', servicioSchema)
+module.exports = model('Membresias', MembresiaSchema)
